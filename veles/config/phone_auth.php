@@ -2,7 +2,7 @@
 
 return [
     "auth" => [
-        "class_user" => "App\\Models\\User",
+        "class_user" => app\Models\User::class,
         "guard" => "web",
         "createUser" => true,
         "loginAfter" => true,
