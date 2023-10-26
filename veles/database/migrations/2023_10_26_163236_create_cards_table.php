@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('cards', function (Blueprint $table) {
             $table->id();
+
+            $table->foreign('group_id')->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->string('title');
+
             $table->string("sort")->default(999);
             $table->timestamps();
         });
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('cards');
     }
 };
